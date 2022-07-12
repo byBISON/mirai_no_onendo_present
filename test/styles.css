@@ -1,0 +1,146 @@
+:root {
+  --max_width: 414px;
+  --hatake_ar_ratio: calc(2500/1125);
+  --sky_title_ratio: calc(600/1125);
+  --model_area_top: calc(min(100vw, var(--max_width)) * calc(800/1125));
+  --model_area_width: calc(min(100vw, var(--max_width)) * calc(1000/1125));
+  --model_area_height: calc(var(--model_area_width) * calc(1400/1000));
+  --viewer_height: calc(100% * calc(1100/1400));
+  --radius: calc(min(100vw, var(--max_width)) * calc(60/1125));
+  --ar_button_width: calc(min(100vw, var(--max_width)) * calc(900/1125));
+  --ar_button_height: calc(var(--ar_button_width) * calc(200/900));
+  --ar_button_margin: calc(min(100vw, var(--max_width)) * calc(50/1125));
+
+  --option_height: calc(min(100vw, var(--max_width)) * calc(1500/1125));
+  --border_height: calc(min(100vw, var(--max_width)) * calc(30/1125));
+  --option_link_width: calc(min(100vw, var(--max_width)) * calc(1000/1125));
+  --option_link_height: calc(var(--option_link_width) * calc(1100/1000));
+  --option_link_top: calc(min(100vw, var(--max_width)) * calc(280/1125));
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+.main_content{
+  width: 100%;
+  height: calc(min(100vw,var(--max_width)) * var(--hatake_ar_ratio));
+}
+
+.title {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: min(100vw, var(--max_width));
+  height: calc(min(100vw, var(--max_width)) * var(--sky_title_ratio));
+  background-image: url(images/title.png?v=01);
+  background-size: contain;
+  background-position-x: center;
+}
+
+.hatake {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(min(100vw, var(--max_width)) * var(--hatake_ar_ratio));
+  background-image: url(images/hatake.png);
+  background-size: contain;
+  background-position-x: center;
+}
+
+.ar {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: min(100vw, var(--max_width));
+  height: calc(min(100vw, var(--max_width)) * var(--hatake_ar_ratio));
+  background-image: url(images/ar.png);
+  background-size: contain;
+  background-position-x: center;
+}
+
+.model_area{
+  position: absolute;
+  top: var(--model_area_top);
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: var(--model_area_width);
+  height: var(--model_area_height);
+}
+
+.viewer{
+  position: relative;
+  width: 100%;
+  height: var(--viewer_height);
+  border-radius: var(--radius) var(--radius) 0 0;
+  overflow: hidden;
+  /* iOSでhiddenが効かないので。 */
+  z-index: 1;
+}
+
+.ar_button{
+  display: block;
+  width: var(--ar_button_width);
+  height: var(--ar_button_height);
+  margin: var(--ar_button_margin);
+  cursor: pointer;
+}
+
+.custom_ar_button{
+  display: none;
+}
+
+model-viewer {
+  width: 100%;
+  height: 100%;
+  --poster-color: #ffffff00;
+}
+
+.option_content{
+  position: relative;
+  width: 100%;
+  height: var(--option_height);
+  background-color:rgb(255, 253, 234);
+  background-image: url(images/optionback.png);
+  background-size: 40px;
+  background-position-x: center;
+}
+
+.option{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: min(100vw, var(--max_width));
+  height: var(--option_height);
+  background-image: url(images/option.png);
+  background-size: contain;
+  background-position-x: center;
+}
+
+.border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--border_height);
+  background-image: url(images/border.png);
+  background-size: contain;
+  background-position-x: center;
+}
+
+.option_link{
+  display: block;
+  position: absolute;
+  top: var(--option_link_top);
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: var(--option_link_width);
+  height: var(--option_link_height);
+  cursor: pointer;
+}

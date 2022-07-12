@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>みらいのおねんどAR</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css?v=04">
+
+    <!-- The following libraries and polyfills are recommended to maximize browser support -->
+    <!-- NOTE: you must adjust the paths as appropriate for your project -->
+
+    <!-- 💁 OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
+    <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+
+</head>
+
+<body>
+    <div class="main_content">
+        <div class="hatake"></div>
+        <div class="title"></div>
+        <div class="ar"></div>
+        <div class="model_area">
+            <div class="viewer">
+                <model-viewer 
+                    src="./models/test.glb?v=01" ios-src="./models/test.usdz?v=01" poster="images/thumbnail.png?v=01"
+                    alt="A 3D model" shadow-intensity="1" camera-controls auto-rotate ar>
+                <button class="custom_ar_button" slot="ar-button"></button>
+                </model-viewer>
+            </div>
+            <a class="ar_button"></a>
+        </div>
+    </div>
+
+    <div class="option_content">
+        <div class="option"></div>
+        <div class="border"></div>
+        <a class="option_link" href="https://sono-saki.jp/"></a>
+    </div>
+
+    <!-- 💁 Include both scripts below to support all browsers! -->
+
+    <!-- Loads <model-viewer> for modern browsers: -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+    </script>
+</body>
+
+<script>
+    document.querySelector('.ar_button').addEventListener('click', (event) => {
+      const modelViewer = document.querySelector("model-viewer");
+      modelViewer.activateAR();
+    });
+</script>
+
+</html>
